@@ -2,10 +2,6 @@
 
 Criando o tópico, produzindo e consumindo.
 
-## Links de referência
-
-**INFOGRÁFICO:** https://whimsical.com/EbWjeGL3gDg9apxewMyGhB
-
 **EXEMPLOS NO CONFLUENT:** https://github.com/confluentinc/cp-docker-images/tree/5.3.3-post/examples
 
 ## Subindo os containers
@@ -20,13 +16,21 @@ docker-compose up -d
 docker exec -it kafka-cluster_kafka-1_1 bash
 ```
 
-## Criando o tópico
+## Tópico
+
+## Listando os tópicos existentes
+
+```bash
+kafka-topics --list --bootstrap-server localhost:29092
+```
+
+### Criando o tópico
 
 ```bash
 kafka-topics --create --bootstrap-server localhost:29092 --replication-factor 3 --partitions 3 --topic meutopico
 ```
 
-## Exibindo informações do tópico, partições, líderes e réplicas
+### Exibindo informações do tópico, partições, líderes e réplicas
 
 ```bash
 kafka-topics --describe --bootstrap-server localhost:29092 --topic meutopico
@@ -35,32 +39,30 @@ kafka-topics --describe --bootstrap-server localhost:29092 --topic meutopico
 ## Exibindo informações sobre os clients conetados, patições, offset e lag
 
 ```bash
-kafka-consumer-groups --describe --bootstra-server locahost:29092 --group a
+kafka-consumer-groups --describe --bootstra-server locahost:29092 --group consumerApi
 ```
 
-## Listando os tópicos existentes
+## Produtor
 
-```bash
-kafka-topics --list --bootstrap-server localhost:29092
-```
-
-## Criando um produtor para um tópico existente (meutopico)
+### Criando um produtor para um tópico existente (meutopico)
 
 ```bash
 kafka-console-producer --broker-list localhost:29092 --topic meutopico
 ```
 
-## Criando um consumidor para um tópico existente (meutopico)
+## Consumidor
+
+### Criando um consumidor para um tópico existente (meutopico)
 
 ```bash
 # --from-beginning (pega as mensagens do início do tópico criado)
 kafka-console-consumer --bootstrap-server localhost:29092 --topic meutopico
 ```
 
-## Criando um consumidor para o tópico existente com grupo
+### Criando um consumidor para o tópico existente com grupo
 
 ```bash
-kafka-console-consumer --bootstrap-server localhost:29092 --topic meutopico --group a
+kafka-console-consumer --bootstrap-server localhost:29092 --topic meutopico --group consumerApi
 ```
 
 Documento por Enéas Almeida, conteúdo de estudo Wesley Willians
