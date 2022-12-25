@@ -4,9 +4,9 @@
 
 ## Pré requisitos
 
-- NodeJs ^14.15.0 || >=16.10.0, versão corrente 18.12.1
-- Npm, versão corrente 8.19.2
-- CLI NestJs, versão corrente 9.1.5
+-   NodeJs ^14.15.0 || >=16.10.0, versão corrente 18.12.1
+-   Npm, versão corrente 8.19.2
+-   CLI NestJs, versão corrente 9.1.5
 
 ## Instalar o CLI do NestJs
 
@@ -29,11 +29,23 @@ nest g res payments --no-spec
 
 ## Técnicas utilizadas
 
-- Adapter + barrel nos services
+-   Adapter + barrel nos services
+-   Docker
+-   Logger
+-   Interceptors
+-   ORM
 
 ## Pacotes utilizados
 
-- KafkaJs
+-   kafkajs
+-   nest-winston
+-   winston
+-   @nestjs/config
+-   @nestjs/typeorm
+-   typeorm
+-   pg
+-   class-validator
+-   class-transformer
 
 ## Para instalar os pacotes e rodar o projeto
 
@@ -42,5 +54,5 @@ nest g res payments --no-spec
 yarn install
 
 # Rodar o projeto
-yarn start
+yarn start:dev
 ```
