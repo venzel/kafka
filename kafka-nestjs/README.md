@@ -1,6 +1,6 @@
 # NestJs + Kafka
 
-**REFERÊNCIAS:** 
+**REFERÊNCIAS:**
 
 [Wesley Williams - Fullcycle](https://github.com/codeedu/nest-kafka/tree/master/apache-kafka)<br />
 [Iago Maia - Medium](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
@@ -47,6 +47,7 @@ nest g res payments --no-spec
 -   @nestjs/typeorm
 -   typeorm
 -   pg
+-   mongoose
 -   class-validator
 -   class-transformer
 

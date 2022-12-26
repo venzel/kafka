@@ -1,6 +1,6 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { UpdatePaymentDto } from '../dto/update.payment.dto';
-import { PaymentMessagesEnum } from '../payment.messages.enum';
+import { PaymentsMessageEnum } from '../payments.message.enum';
 import { PaymentRepository } from '../payment.repository';
 import { ResponsePaymentDto } from './../dto/response.payment.dto';
 
@@ -16,7 +16,7 @@ export class UpdatePaymentService {
         const existsPayment = await this.paymentRepository.findOneById(id);
 
         if (!existsPayment) {
-            throw new NotFoundException(PaymentMessagesEnum.NOT_FOUND);
+            throw new NotFoundException(PaymentsMessageEnum.NOT_FOUND);
         }
 
         Object.assign(existsPayment, updatePaymentDto);
@@ -24,7 +24,7 @@ export class UpdatePaymentService {
         const paymentSaved = await this.paymentRepository.save(existsPayment);
 
         return {
-            message: PaymentMessagesEnum.UPDATED,
+            message: PaymentsMessageEnum.UPDATED,
             payment: paymentSaved,
         };
     }

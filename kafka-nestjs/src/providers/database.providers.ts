@@ -1,6 +1,12 @@
+import mongoose from 'mongoose';
 import { DataSource } from 'typeorm';
 
-export const typeormProviders = [
+export const databaseProviders = [
+    {
+        provide: 'DATABASE_CONNECTION',
+        useFactory: (): Promise<typeof mongoose> =>
+            mongoose.connect('mongodb://payment:payment@localhost:27017/payment'),
+    },
     {
         provide: 'DATA_SOURCE',
         useFactory: async () => {

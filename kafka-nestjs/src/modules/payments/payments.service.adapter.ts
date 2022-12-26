@@ -6,7 +6,7 @@ import { FindOnePaymentService } from './services/findone.payment.service';
 import { UpdatePaymentService } from './services/update.payment.service';
 
 @Injectable()
-export class PaymentServiceAdapter {
+export class PaymentsServiceAdapter {
     constructor(
         private readonly createPaymentService: CreatePaymentService,
         private readonly updatePaymentService: UpdatePaymentService,

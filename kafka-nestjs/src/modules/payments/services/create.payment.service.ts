@@ -1,7 +1,7 @@
 import { Injectable, Logger, UnprocessableEntityException } from '@nestjs/common';
 import { CreatePaymentDto } from '../dto/create.payment.dto';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
-import { PaymentMessagesEnum } from '../payment.messages.enum';
+import { PaymentsMessageEnum } from '../payments.message.enum';
 import { PaymentRepository } from '../payment.repository';
 
 @Injectable()
@@ -16,11 +16,11 @@ export class CreatePaymentService {
         const paymentCreated = await this.paymentRepository.create(createPaymentDto);
 
         if (!paymentCreated) {
-            throw new UnprocessableEntityException(PaymentMessagesEnum.UNPROCESSABLE_ENTITY);
+            throw new UnprocessableEntityException(PaymentsMessageEnum.UNPROCESSABLE_ENTITY);
         }
 
         return {
-            message: PaymentMessagesEnum.CREATED,
+            message: PaymentsMessageEnum.CREATED,
             payment: paymentCreated,
         };
     }

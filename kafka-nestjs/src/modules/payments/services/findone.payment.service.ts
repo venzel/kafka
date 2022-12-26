@@ -1,7 +1,7 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
 import { PaymentRepository } from '../payment.repository';
-import { PaymentMessagesEnum } from './../payment.messages.enum';
+import { PaymentsMessageEnum } from '../payments.message.enum';
 
 @Injectable()
 export class FindOnePaymentService {
@@ -15,11 +15,11 @@ export class FindOnePaymentService {
         const existsPayment = await this.paymentRepository.findOneById(id);
 
         if (!existsPayment) {
-            throw new NotFoundException(PaymentMessagesEnum.NOT_FOUND);
+            throw new NotFoundException(PaymentsMessageEnum.NOT_FOUND);
         }
 
         return {
-            message: PaymentMessagesEnum.SHOWED,
+            message: PaymentsMessageEnum.SHOWED,
             payment: existsPayment,
         };
     }

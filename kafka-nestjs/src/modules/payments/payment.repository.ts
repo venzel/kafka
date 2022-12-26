@@ -2,7 +2,7 @@ import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common
 import { Repository } from 'typeorm';
 import { CreatePaymentDto } from './dto/create.payment.dto';
 import { Payment } from './payment.entity';
-import { PaymentMessagesEnum } from './payment.messages.enum';
+import { PaymentsMessageEnum } from './payments.message.enum';
 
 @Injectable()
 export class PaymentRepository {
@@ -23,7 +23,7 @@ export class PaymentRepository {
 
             return payment;
         } catch (_) {
-            throw new InternalServerErrorException(PaymentMessagesEnum.INTERNAL_ERROR);
+            throw new InternalServerErrorException(PaymentsMessageEnum.INTERNAL_ERROR);
         }
     }
 

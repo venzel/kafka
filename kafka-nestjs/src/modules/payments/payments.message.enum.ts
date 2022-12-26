@@ -1,4 +1,4 @@
-export enum PaymentMessagesEnum {
+export enum PaymentsMessageEnum {
     CREATED = 'Payment created!',
     UPDATED = 'Payment updated!',
     LISTED = 'Payments listed!',

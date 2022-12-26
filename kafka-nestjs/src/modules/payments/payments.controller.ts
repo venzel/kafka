@@ -2,11 +2,11 @@ import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreatePaymentDto } from './dto/create.payment.dto';
 import { ResponsePaymentDto } from './dto/response.payment.dto';
 import { UpdatePaymentDto } from './dto/update.payment.dto';
-import { PaymentServiceAdapter } from './payment.service.adapter';
+import { PaymentsServiceAdapter } from './payments.service.adapter';
 
 @Controller('payments')
 export class PaymentController {
-    constructor(private readonly paymentService: PaymentServiceAdapter) {}
+    constructor(private readonly paymentService: PaymentsServiceAdapter) {}
 
     @Post()
     async create(@Body() createPaymentDto: CreatePaymentDto): Promise<ResponsePaymentDto> {
