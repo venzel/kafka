@@ -1,7 +1,6 @@
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
-import { port } from './core/configs/api.config';
 import { winstonConfig } from './core/configs/winston.config';
 import { AppModule } from './modules/app.module';
 
@@ -23,6 +22,6 @@ async function bootstrap() {
 
     app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
-    await app.listen(port);
+    await app.listen(process.env.PORT_API);
 }
 bootstrap();
