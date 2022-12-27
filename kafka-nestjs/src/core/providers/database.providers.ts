@@ -1,12 +1,9 @@
 import mongoose from 'mongoose';
 import { DataSource } from 'typeorm';
 
+mongoose.set('strictQuery', false);
+
 export const databaseProviders = [
-    {
-        provide: 'DATABASE_CONNECTION',
-        useFactory: (): Promise<typeof mongoose> =>
-            mongoose.connect('mongodb://payment:payment@localhost:27017/payment'),
-    },
     {
         provide: 'DATA_SOURCE',
         useFactory: async () => {
@@ -17,11 +14,17 @@ export const databaseProviders = [
                 username: 'payment',
                 password: 'payment',
                 database: 'payment',
-                entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+                entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
                 synchronize: true,
+                connectTimeoutMS: 3000,
             });
 
             return dataSource.initialize();
         },
+    },
+    {
+        provide: 'DATABASE_CONNECTION',
+        useFactory: (): Promise<typeof mongoose> =>
+            mongoose.connect('mongodb://payment:payment@localhost:27018/payment'),
     },
 ];

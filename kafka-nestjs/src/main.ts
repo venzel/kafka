@@ -1,9 +1,9 @@
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
-import { port } from './configs/api.config';
-import { winstonConfig } from './configs/winston.config';
-import { AppModule } from './app.module';
+import { port } from './core/configs/api.config';
+import { winstonConfig } from './core/configs/winston.config';
+import { AppModule } from './modules/app.module';
 
 async function bootstrap() {
     const logger = WinstonModule.createLogger(winstonConfig);

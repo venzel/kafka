@@ -1,8 +1,8 @@
 import { Injectable, Logger, UnprocessableEntityException } from '@nestjs/common';
 import { CreatePaymentDto } from '../dto/create.payment.dto';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
-import { PaymentsMessageEnum } from '../payments.message.enum';
 import { PaymentRepository } from '../payment.repository';
+import { PaymentsMessageEnum } from '../payments.message.enum';
 
 @Injectable()
 export class CreatePaymentService {

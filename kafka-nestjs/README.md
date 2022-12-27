@@ -41,6 +41,7 @@ nest g res payments --no-spec
 ## Pacotes utilizados
 
 -   kafkajs
+-   @nestjs/axios
 -   nest-winston
 -   winston
 -   @nestjs/config
