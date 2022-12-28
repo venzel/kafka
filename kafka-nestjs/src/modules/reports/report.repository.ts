@@ -9,16 +9,16 @@ import { ReportsMessageEnum } from './reports.message.enum';
 export class ReportRepository {
     constructor(
         @Inject('REPORT_MODEL')
-        private reportModel: Model<Report>,
+        private reportRepository: Model<Report>,
     ) {}
 
     async findOneById(id: string): Promise<Report | undefined> {
-        return await this.reportModel.findOne({ where: { id } });
+        return await this.reportRepository.findOne({ where: { id } });
     }
 
     async create(createReportDto: CreateReportDto): Promise<Report> {
         try {
-            return await this.reportModel.create(createReportDto);
+            return await this.reportRepository.create(createReportDto);
         } catch (_) {
             throw new InternalServerErrorException(ReportsMessageEnum.INTERNAL_ERROR);
         }

@@ -19,9 +19,8 @@ export class CreateReportService {
             throw new UnprocessableEntityException(ReportsMessageEnum.UNPROCESSABLE_ENTITY);
         }
 
-        return {
-            message: ReportsMessageEnum.CREATED,
-            report: reportCreated,
-        };
+        this.logger.log(ReportsMessageEnum.CREATED);
+
+        return ResponseReportDto.factory(ReportsMessageEnum.SHOWED, reportCreated);
     }
 }

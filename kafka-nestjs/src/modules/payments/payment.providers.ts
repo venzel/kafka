@@ -5,6 +5,6 @@ export const paymentProviders = [
     {
         provide: 'PAYMENT_REPOSITORY',
         useFactory: (dataSource: DataSource) => dataSource.getRepository(Payment),
-        inject: ['DATA_SOURCE'],
+        inject: ['POSTGRES_CONNECTION'],
     },
 ];

@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { databaseProviders } from 'src/core/providers/database.providers';
+import { datasourceProviders } from 'src/core/providers/datasource.providers';
 import { paymentProviders } from './payment.providers';
 import { PaymentRepository } from './payment.repository';
 import { PaymentController } from './payments.controller';
@@ -12,9 +12,9 @@ import { UpdatePaymentService } from './services/update.payment.service';
 @Module({
     controllers: [PaymentController],
     imports: [HttpModule],
-    exports: [...databaseProviders],
+    exports: [...datasourceProviders],
     providers: [
-        ...databaseProviders,
+        ...datasourceProviders,
         ...paymentProviders,
         PaymentRepository,
         PaymentsServiceAdapter,

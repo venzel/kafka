@@ -18,9 +18,8 @@ export class FindOneReportService {
             throw new NotFoundException(ReportsMessageEnum.NOT_FOUND);
         }
 
-        return {
-            message: ReportsMessageEnum.SHOWED,
-            report: existsReport,
-        };
+        this.logger.log(ReportsMessageEnum.SHOWED);
+
+        return ResponseReportDto.factory(ReportsMessageEnum.SHOWED, existsReport);
     }
 }

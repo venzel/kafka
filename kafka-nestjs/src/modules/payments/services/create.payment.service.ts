@@ -19,6 +19,8 @@ export class CreatePaymentService {
             throw new UnprocessableEntityException(PaymentsMessageEnum.UNPROCESSABLE_ENTITY);
         }
 
+        this.logger.log(PaymentsMessageEnum.CREATED);
+
         return {
             message: PaymentsMessageEnum.CREATED,
             payment: paymentCreated,

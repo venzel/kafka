@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { databaseProviders } from 'src/core/providers/database.providers';
+import { mongodbProviders } from 'src/core/providers/mongodb.providers';
 import { reportProviders } from './report.providers';
 import { ReportRepository } from './report.repository';
 import { ReportsController } from './reports.controller';
@@ -8,10 +8,10 @@ import { CreateReportService } from './services/create.report.service';
 import { FindOneReportService } from './services/findone.report.service';
 
 @Module({
-    exports: [...databaseProviders],
+    exports: [...mongodbProviders],
     controllers: [ReportsController],
     providers: [
-        ...databaseProviders,
+        ...mongodbProviders,
         ...reportProviders,
         ReportRepository,
         ReportsServiceAdapter,

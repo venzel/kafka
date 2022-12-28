@@ -7,5 +7,5 @@ export class CreatePaymentDto {
     description: string;
 
     @IsNotEmpty({ message: 'Informe um valor!' })
-    value: number;
+    amount: number;
 }

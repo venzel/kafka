@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('payments')
 export class Payment extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -9,7 +9,7 @@ export class Payment extends BaseEntity {
     description: string;
 
     @Column()
-    value: number;
+    amount: number;
 
     constructor(partial: Partial<Payment>) {
         super();

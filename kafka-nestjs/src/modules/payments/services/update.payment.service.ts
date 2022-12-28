@@ -2,7 +2,7 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { UpdatePaymentDto } from '../dto/update.payment.dto';
 import { PaymentsMessageEnum } from '../payments.message.enum';
 import { PaymentRepository } from '../payment.repository';
-import { ResponsePaymentDto } from './../dto/response.payment.dto';
+import { ResponsePaymentDto } from '../dto/response.payment.dto';
 
 @Injectable()
 export class UpdatePaymentService {

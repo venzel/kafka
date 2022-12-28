@@ -3,9 +3,9 @@ import { DataSource } from 'typeorm';
 
 mongoose.set('strictQuery', false);
 
-export const databaseProviders = [
+export const datasourceProviders = [
     {
-        provide: 'DATA_SOURCE',
+        provide: 'POSTGRES_CONNECTION',
         useFactory: async () => {
             const dataSource = new DataSource({
                 type: 'postgres',
@@ -21,10 +21,5 @@ export const databaseProviders = [
 
             return dataSource.initialize();
         },
-    },
-    {
-        provide: 'DATABASE_CONNECTION',
-        useFactory: (): Promise<typeof mongoose> =>
-            mongoose.connect('mongodb://payment:payment@localhost:27018/payment'),
     },
 ];
