@@ -1,6 +1,5 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { catchError, firstValueFrom } from 'rxjs';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
 import { PaymentRepository } from '../payment.repository';
 import { PaymentsMessageEnum } from '../payments.message.enum';
@@ -17,15 +16,19 @@ export class FindOnePaymentService {
     }
 
     async execute(id: string): Promise<ResponsePaymentDto | undefined> {
-        const { data } = await firstValueFrom(
-            this.httpService.get<any>('https://api.coindesk.com/v1/bpi/currentprice.json').pipe(
-                catchError((error: any) => {
-                    this.logger.error(error.response.data);
-
-                    throw new Error('An error happenedx!');
-                }),
-            ),
+        const data = await this.httpService.axiosRef.get(
+            'https://api.coindesk.com/v1/bpi/currentprice.json',
         );
+
+        // const { data } = await firstValueFrom(
+        //     this.httpService.get<any>('https://api.coindesk.com/v1/bpi/currentprice.json').pipe(
+        //         catchError((error: any) => {
+        //             this.logger.error(error.response.data);
+
+        //             throw new Error('An error happenedx!');
+        //         }),
+        //     ),
+        // );
 
         this.logger.log(data);
 
