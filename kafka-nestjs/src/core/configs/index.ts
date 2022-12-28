@@ -1,5 +1,6 @@
-import apiConfig from './api.config';
+import baseConfig from './base.config';
 import postgresConfig from './postgres.config';
+import mongodbConfig from './mongodb.config';
 import { winstonConfig } from './winston.config';
 
-export { apiConfig, postgresConfig, winstonConfig };
+export { baseConfig, postgresConfig, mongodbConfig, winstonConfig };

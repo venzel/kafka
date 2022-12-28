@@ -1,7 +1,5 @@
-import mongoose from 'mongoose';
 import { DataSource } from 'typeorm';
-
-mongoose.set('strictQuery', false);
+import { postgresConfig as pg } from '../configs';
 
 export const datasourceProviders = [
     {
@@ -9,11 +7,11 @@ export const datasourceProviders = [
         useFactory: async () => {
             const dataSource = new DataSource({
                 type: 'postgres',
-                host: 'localhost',
-                port: 5432,
-                username: 'payment',
-                password: 'payment',
-                database: 'payment',
+                host: pg.POSTGRES_HOST,
+                port: pg.POSTGRES_PORT,
+                username: pg.POSTGRES_USER,
+                password: pg.POSTGRES_PASSWORD,
+                database: pg.POSTGRES_DB_NAME,
                 entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
                 synchronize: true,
                 connectTimeoutMS: 3000,

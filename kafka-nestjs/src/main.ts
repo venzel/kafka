@@ -1,9 +1,9 @@
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
 import { winstonConfig } from './core/configs/winston.config';
 import { AppModule } from './modules/app.module';
+import { baseConfig } from './core/configs';
 
 async function bootstrap() {
     const logger = WinstonModule.createLogger(winstonConfig);
@@ -23,12 +23,10 @@ async function bootstrap() {
 
     app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
-    const configService = app.get(ConfigService);
+    const { API_PORT } = baseConfig();
 
-    const apiPort = configService.get('API_PORT');
+    await app.listen(API_PORT);
 
-    await app.listen(apiPort);
-
-    logger.log(`Server listen in port ${apiPort}!`);
+    logger.log(`Server listen in port ${API_PORT}!`);
 }
 bootstrap();
