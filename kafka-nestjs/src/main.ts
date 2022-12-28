@@ -25,10 +25,10 @@ async function bootstrap() {
 
     const configService = app.get(ConfigService);
 
-    const port = configService.get('PORT_API');
+    const apiPort = configService.get('API_PORT');
 
-    await app.listen(port);
+    await app.listen(apiPort);
 
-    logger.log(`Server listen in port ${port}!`);
+    logger.log(`Server listen in port ${apiPort}!`);
 }
 bootstrap();
