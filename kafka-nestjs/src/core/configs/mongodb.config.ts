@@ -1,9 +1,9 @@
 const { env } = process;
 
 export default {
-    MONGODBB_HOST: env.MONGODBB_HOST || 'localhost',
-    MONGODBB_PORT: parseInt(env.MONGODBB_PORT, 10) || 27018,
-    MONGODBB_DB_NAME: env.MONGODBB_DB_NAME || 'payment',
-    MONGODBB_USER: env.MONGODBB_USER || 'payment',
-    MONGODBB_PASSWORD: env.MONGODBB_PASSWORD || 'payment',
+    MONGODB_HOST: env.MONGODB_HOST || 'localhost',
+    MONGODB_PORT: parseInt(env.MONGODB_PORT, 10) || 27018,
+    MONGODB_DB_NAME: env.MONGODB_DB_NAME || 'payment',
+    MONGODB_USER: env.MONGODB_USER || 'payment',
+    MONGODB_PASSWORD: env.MONGODB_PASSWORD || 'payment',
 };

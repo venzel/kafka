@@ -3,9 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
 import { LoggerInterceptor } from 'src/core/interceptors/logger.interceptor';
-import { baseConfig, winstonConfig } from '../core/configs';
-import { PaymentModule } from './payments/payments.module';
-import { ReportsModule } from './reports/reports.module';
+import { baseConfig, winstonConfig } from './core/configs';
+import { VariablesService } from './core/services/variables.service';
+import { PaymentModule } from './modules/payments/payments.module';
+import { ReportsModule } from './modules/reports/reports.module';
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { ReportsModule } from './reports/reports.module';
         ReportsModule,
     ],
     providers: [
+        VariablesService,
         {
             provide: APP_INTERCEPTOR,
             useClass: LoggerInterceptor,

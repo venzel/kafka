@@ -3,20 +3,20 @@ db = db.getSiblingDB('payment');
 db.createUser({
     user: 'payment',
     pwd: 'payment',
-    roles: [{ role: 'readWrite', db: 'payment' }],
+    roles: [{ role: 'readWrite', db: 'reports' }],
 });
 
-db.payment.insertMany([
+db.reports.insertMany([
     {
-        description: 'Payment 1',
-        value: 10,
+        description: 'Reports 1',
+        resolved: false,
     },
     {
-        description: 'Payment 2',
-        value: 15,
+        description: 'Reports 2',
+        resolved: false,
     },
     {
-        description: 'Payment 3',
-        value: 30,
+        description: 'Reports 3',
+        resolved: true,
     },
 ]);

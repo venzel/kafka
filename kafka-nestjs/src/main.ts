@@ -2,7 +2,7 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
 import { winstonConfig } from './core/configs/winston.config';
-import { AppModule } from './modules/app.module';
+import { AppModule } from './app.module';
 import { baseConfig } from './core/configs';
 
 async function bootstrap() {
