@@ -5,15 +5,15 @@ import { WinstonModule } from 'nest-winston';
 import { LoggerInterceptor } from 'src/core/interceptors/logger.interceptor';
 import { baseConfig, winstonConfig } from './core/configs';
 import { VariablesService } from './core/services/variables.service';
-import { PaymentModule } from './modules/payments/payments.module';
-import { ReportsModule } from './modules/reports/reports.module';
+import { NotifyModule } from './modules/notify/notify.module';
 
 @Module({
     imports: [
         ConfigModule.forRoot({ isGlobal: true, load: [baseConfig] }),
         WinstonModule.forRoot(winstonConfig),
-        PaymentModule,
-        ReportsModule,
+        NotifyModule,
+        // PaymentModule,
+        // ReportsModule,
     ],
     providers: [
         VariablesService,

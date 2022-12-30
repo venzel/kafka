@@ -1,15 +1,14 @@
-import { Injectable, Logger, UnprocessableEntityException } from '@nestjs/common';
+import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CreatePaymentDto } from '../dto/create.payment.dto';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
 import { PaymentRepository } from '../payment.repository';
 import { PaymentsMessageEnum } from '../payments.message.enum';
+import { PaymentService } from './payment.service';
 
 @Injectable()
-export class CreatePaymentService {
-    private readonly logger: Logger;
-
+export class CreatePaymentService extends PaymentService {
     constructor(private readonly paymentRepository: PaymentRepository) {
-        this.logger = new Logger(CreatePaymentService.name);
+        super();
     }
 
     async execute(createPaymentDto: CreatePaymentDto): Promise<ResponsePaymentDto> {

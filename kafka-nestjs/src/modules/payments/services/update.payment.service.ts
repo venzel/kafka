@@ -1,15 +1,14 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { UpdatePaymentDto } from '../dto/update.payment.dto';
-import { PaymentsMessageEnum } from '../payments.message.enum';
-import { PaymentRepository } from '../payment.repository';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
+import { UpdatePaymentDto } from '../dto/update.payment.dto';
+import { PaymentRepository } from '../payment.repository';
+import { PaymentsMessageEnum } from '../payments.message.enum';
+import { PaymentService } from './payment.service';
 
 @Injectable()
-export class UpdatePaymentService {
-    private readonly logger: Logger;
-
+export class UpdatePaymentService extends PaymentService {
     constructor(private readonly paymentRepository: PaymentRepository) {
-        this.logger = new Logger(UpdatePaymentService.name);
+        super();
     }
 
     async execute(id: string, updatePaymentDto: UpdatePaymentDto): Promise<ResponsePaymentDto> {

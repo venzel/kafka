@@ -1,18 +1,17 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ResponsePaymentDto } from '../dto/response.payment.dto';
 import { PaymentRepository } from '../payment.repository';
 import { PaymentsMessageEnum } from '../payments.message.enum';
+import { PaymentService } from './payment.service';
 
 @Injectable()
-export class FindOnePaymentService {
-    private readonly logger: Logger;
-
+export class FindOnePaymentService extends PaymentService {
     constructor(
         private readonly httpService: HttpService,
         private readonly paymentRepository: PaymentRepository,
     ) {
-        this.logger = new Logger(FindOnePaymentService.name);
+        super();
     }
 
     async execute(id: string): Promise<ResponsePaymentDto | undefined> {
