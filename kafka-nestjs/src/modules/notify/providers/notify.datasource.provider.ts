@@ -1,8 +1,7 @@
 import { DataSource } from 'typeorm';
-import { PostgresNotifyEntity } from './entities/postgres.notify.entity';
-import { PostgresNotifyRepository } from './repositories/postgres.notify.repsitory';
+import { PostgresNotifyEntity } from '../infra/typeorm/entities/postgres.notify.entity';
 
-export const notifyProvider = [
+export const notifyDatasourceProvider = [
     {
         provide: 'NOTIFY_REPOSITORY',
         useFactory: (dataSource: DataSource) => dataSource.getRepository(PostgresNotifyEntity),

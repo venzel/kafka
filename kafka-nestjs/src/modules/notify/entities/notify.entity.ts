@@ -1,4 +1,4 @@
 export interface NotifyEntity {
-    id: string;
-    message: string;
+    readonly id: string;
+    readonly message: string;
 }

@@ -1,8 +1,8 @@
-import { CreateNotifyDto } from '../dto/create.notify.dto';
-import { NotifyEntity } from '../entities/notify.entity';
+import { CreateNotifyDto } from '../dtos/create.notify.dto';
+import { ResponseNotifyDto } from '../dtos/response.notify.dto';
 
 export interface NotifyRepository {
-    findAll(): Promise<NotifyEntity[] | undefined>;
+    create(createNotifyDto: CreateNotifyDto): Promise<ResponseNotifyDto>;
 
-    create(createNotifyDto: CreateNotifyDto): Promise<NotifyEntity>;
+    findAll(): Promise<ResponseNotifyDto[]>;
 }

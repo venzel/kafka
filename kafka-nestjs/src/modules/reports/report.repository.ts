@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InternalServerErrorException } from '@nestjs/common/exceptions';
 import { Model } from 'mongoose';
 import { CreateReportDto } from './dto/create.report.dto';
-import { Report } from './report.model';
+import { Report } from './models/report.model';
 import { ReportsMessageEnum } from './reports.message.enum';
 
 @Injectable()

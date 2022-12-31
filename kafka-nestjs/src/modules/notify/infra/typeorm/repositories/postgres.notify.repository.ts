@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { CreateNotifyDto } from '../dto/create.notify.dto';
-import { NotifyEntity } from '../entities/notify.entity';
-import { NotifyRepository } from './notify.repository';
+import { CreateNotifyDto } from '../../../dtos/create.notify.dto';
+import { NotifyEntity } from '../../../entities/notify.entity';
+import { NotifyRepository } from '../../../repositories/notify.repository';
 
 export class PostgresNotifyRepository implements NotifyRepository {
     constructor(
@@ -12,8 +12,6 @@ export class PostgresNotifyRepository implements NotifyRepository {
 
     async create(createNotifyDto: CreateNotifyDto): Promise<NotifyEntity> {
         const notify = this.notifyRepository.create(createNotifyDto);
-
-        console.log(notify);
 
         try {
             await this.notifyRepository.save(notify);

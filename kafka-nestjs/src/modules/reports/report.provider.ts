@@ -1,7 +1,7 @@
 import { Connection } from 'mongoose';
-import { ReportSchema } from './report.schema';
+import { ReportSchema } from './infra/mongoose/schemas/report.schema';
 
-export const reportProviders = [
+export const reportProvider = [
     {
         provide: 'REPORT_MODEL',
         useFactory: (connection: Connection) => connection.model('Report', ReportSchema),

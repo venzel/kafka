@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateNotifyDto } from './dto/create.notify.dto';
-import { ResponseNotifyDto } from './dto/response.notify.dto';
+import { CreateNotifyDto } from './dtos/create.notify.dto';
+import { ResponseNotifyDto } from './dtos/response.notify.dto';
 import { NotifyServiceAdapter } from './notify.service.adapter';
 
 @Controller('notifies')
@@ -13,7 +13,7 @@ export class NotifyController {
     }
 
     @Get()
-    findAll() {
-        return this.notifyService.findAll();
+    async findAll(): Promise<ResponseNotifyDto[]> {
+        return await this.notifyService.findAll();
     }
 }

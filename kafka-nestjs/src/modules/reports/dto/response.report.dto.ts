@@ -1,4 +1,4 @@
-import { Report } from '../report.model';
+import { Report } from '../models/report.model';
 
 export class ResponseReportDto {
     message: string;

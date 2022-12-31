@@ -1,20 +1,20 @@
-import { CreateNotifyDto } from './dto/create.notify.dto';
 import { Injectable } from '@nestjs/common';
-import { CreateNotifyService } from './services/create.notify.service';
-import { FindAllNotifyService } from './services/findall.notify.service';
+import { CreateNotifyDto } from './dtos/create.notify.dto';
+import { ResponseNotifyDto } from './notify.dtos.barrel';
+import { CreateNotifyService, FindNotifyService } from './notify.services.barrel';
 
 @Injectable()
 export class NotifyServiceAdapter {
     constructor(
         private readonly createNotifyService: CreateNotifyService,
-        private readonly findAllNotifyService: FindAllNotifyService,
+        private readonly findNotifyService: FindNotifyService,
     ) {}
 
-    create(createNotifyDto: CreateNotifyDto) {
-        return this.createNotifyService.execute(createNotifyDto);
+    async create(createNotifyDto: CreateNotifyDto): Promise<ResponseNotifyDto> {
+        return await this.createNotifyService.execute(createNotifyDto);
     }
 
-    findAll() {
-        return this.findAllNotifyService.execute();
+    async findAll(): Promise<ResponseNotifyDto[]> {
+        return await this.findNotifyService.execute();
     }
 }
