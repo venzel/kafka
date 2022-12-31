@@ -1,26 +1,25 @@
 import { Module } from '@nestjs/common';
-import { httpIntegration } from 'src/core/integrations/http.integration';
-import { datasourceProviders } from 'src/core/providers/datasource.providers';
-import { paymentProviders } from './payment.providers';
-import { PaymentRepository } from './payment.repository';
-import { PaymentController } from './payments.controller';
-import { PaymentsServiceAdapter } from './payments.service.adapter';
-import { CreatePaymentService } from './services/create.payment.service';
-import { FindOnePaymentService } from './services/findone.payment.service';
-import { UpdatePaymentService } from './services/update.payment.service';
+import {
+    PaypalPaymentService,
+    PicpayPaymentService,
+} from '../../core/services/payment.service.barrel';
+import { PaypalPaymentController, PicpayPaymentController } from './payment.controllers.barrel';
+import {
+    PaypalPaymentServiceAdapter,
+    PicpayPaymentServiceAdapter,
+} from './payment.services.barrel';
+import { httpPicpayProvider, httpProvider } from './providers/http.provider';
+import { paymentProvider } from './providers/payment.provider';
 
 @Module({
-    controllers: [PaymentController],
-    imports: [httpIntegration],
-    exports: [...datasourceProviders],
+    imports: [httpProvider, httpPicpayProvider],
+    controllers: [PaypalPaymentController, PicpayPaymentController],
     providers: [
-        ...datasourceProviders,
-        ...paymentProviders,
-        PaymentRepository,
-        PaymentsServiceAdapter,
-        CreatePaymentService,
-        UpdatePaymentService,
-        FindOnePaymentService,
+        ...paymentProvider,
+        PaypalPaymentService,
+        PicpayPaymentService,
+        PaypalPaymentServiceAdapter,
+        PicpayPaymentServiceAdapter,
     ],
 })
-export class PaymentModule {}
+export class PaymentsModule {}

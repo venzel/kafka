@@ -3,18 +3,18 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { WinstonModule } from 'nest-winston';
 import { LoggerInterceptor } from 'src/core/interceptors/logger.interceptor';
-import { baseConfig, winstonConfig } from './core/configs';
+import { baseConfig, winstonConfig, paypalConfig } from './core/configs';
 import { VariablesService } from './core/services/variables.service';
 import { NotifyModule } from './modules/notify/notify.module';
-import { PaymentModule } from './modules/payments/payments.module';
+import { PaymentsModule } from './modules/payments/payments.module';
 import { ReportsModule } from './modules/reports/reports.module';
 
 @Module({
     imports: [
-        ConfigModule.forRoot({ isGlobal: true, load: [baseConfig] }),
+        ConfigModule.forRoot({ isGlobal: true, load: [baseConfig, paypalConfig] }),
         WinstonModule.forRoot(winstonConfig),
         NotifyModule,
-        PaymentModule,
+        PaymentsModule,
         ReportsModule,
     ],
     providers: [
