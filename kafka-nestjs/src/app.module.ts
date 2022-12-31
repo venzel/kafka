@@ -6,14 +6,16 @@ import { LoggerInterceptor } from 'src/core/interceptors/logger.interceptor';
 import { baseConfig, winstonConfig } from './core/configs';
 import { VariablesService } from './core/services/variables.service';
 import { NotifyModule } from './modules/notify/notify.module';
+import { PaymentModule } from './modules/payments/payments.module';
+import { ReportsModule } from './modules/reports/reports.module';
 
 @Module({
     imports: [
         ConfigModule.forRoot({ isGlobal: true, load: [baseConfig] }),
         WinstonModule.forRoot(winstonConfig),
         NotifyModule,
-        // PaymentModule,
-        // ReportsModule,
+        PaymentModule,
+        ReportsModule,
     ],
     providers: [
         VariablesService,
