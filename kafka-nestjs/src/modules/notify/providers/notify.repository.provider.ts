@@ -1,8 +1,13 @@
-import { PostgresNotifyRepository } from '../infra/typeorm/repositories/postgres.notify.repository';
+import { NotifyTypeormRepository } from '../infra/typeorm/repositories/notify.typeorm.repository';
+import { NotifyInMemoryRepository } from '../repositories/notify.in.memory.repository';
 
 export const notifyRepositoryProvider = [
     {
-        provide: 'POSTGRES_NOTIFY_REPOSITORY',
-        useClass: PostgresNotifyRepository,
+        provide: 'NOTIFY_TYPEORM_REPOSITORY',
+        useClass: NotifyTypeormRepository,
+    },
+    {
+        provide: 'NOTIFY_IN_MEMORY_REPOSITORY',
+        useClass: NotifyInMemoryRepository,
     },
 ];

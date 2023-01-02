@@ -4,6 +4,7 @@
 
 [Wesley Williams - Fullcycle](https://github.com/codeedu/nest-kafka/tree/master/apache-kafka)<br />
 [Iago Maia - Medium](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
+[Imersão Fullcycle](https://github.com/codeedu/live-imersao-fullcycle8-nestjs-clean-architecture)
 
 ## Pré requisitos
 
@@ -51,6 +52,8 @@ nest g res payments --no-spec
 -   mongoose
 -   class-validator
 -   class-transformer
+-   @swc/jest -D
+-   @swc/core -D
 
 ## Para instalar os pacotes e rodar o projeto
 

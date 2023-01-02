@@ -1,5 +1,3 @@
-import { NotifyEntity } from '../entities/notify.entity';
-
 export class ResponseNotifyDto {
     id: string;
     message: string;
@@ -9,17 +7,7 @@ export class ResponseNotifyDto {
         this.message = message;
     }
 
-    static factory(id: string, message: string) {
+    static factory(id: string, message: string): ResponseNotifyDto {
         return new this(id, message);
-    }
-
-    static parse(notifyEntify: NotifyEntity) {
-        const { id, message } = notifyEntify;
-
-        return new this(id, message);
-    }
-
-    static parseAll(notifies: NotifyEntity[]) {
-        return notifies.map((notify) => new this(notify.id, notify.message));
     }
 }

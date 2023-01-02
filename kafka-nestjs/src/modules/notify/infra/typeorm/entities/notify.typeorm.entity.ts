@@ -1,8 +1,8 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { NotifyEntity } from '../../../entities/notify.entity';
+import { NotifyEntityInterface } from '../../../entities/notify.entity.interface';
 
 @Entity('notifies')
-export class PostgresNotifyEntity extends BaseEntity implements NotifyEntity {
+export class NotifyTypeormEntity extends BaseEntity implements NotifyEntityInterface {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
