@@ -6,7 +6,7 @@ import {
 import {
     PaypalPaymentController,
     PicpayPaymentController,
-} from './controllers/payment.controllers.barrel';
+} from './infra/controllers/payment.controllers.barrel';
 import {
     PaypalPaymentServiceAdapter,
     PicpayPaymentServiceAdapter,

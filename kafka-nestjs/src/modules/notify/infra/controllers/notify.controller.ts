@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateNotifyDto } from './dtos/create.notify.dto';
-import { ResponseNotifyDto } from './dtos/response.notify.dto';
-import { NotifyServiceAdapter } from './services/notify.service.adapter';
+import { CreateNotifyDto } from '../../dtos/create.notify.dto';
+import { ResponseNotifyDto } from '../../dtos/response.notify.dto';
+import { NotifyServiceAdapter } from '../../services/notify.service.adapter';
 
 @Controller('notifies')
 export class NotifyController {

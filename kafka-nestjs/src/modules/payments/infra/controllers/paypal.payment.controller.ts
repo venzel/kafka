@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { PaypalPaymentServiceAdapter } from '../services/payment.services.barrel';
+import { PaypalPaymentServiceAdapter } from '../../services/paypal.payment.service.adapter';
 
 @Controller('payments/paypal')
 export class PaypalPaymentController {

@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { PicpayPaymentServiceAdapter } from '../services/payment.services.barrel';
+import { PicpayPaymentServiceAdapter } from '../../services/picpay.payment.service.adapter';
 
 @Controller('payments/picpay')
 export class PicpayPaymentController {

@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { datasourceProviders } from 'src/core/database/datasource.providers';
 import { DataSource } from 'typeorm';
+import { NotifyController } from './infra/controllers/notify.controller';
 import { NotifyTypeormEntity } from './infra/typeorm/entities/notify.typeorm.entity';
 import { NotifyTypeormRepository } from './infra/typeorm/repositories/notify.typeorm.repository';
-import { NotifyController } from './notify.controller';
 import { NotifyServiceAdapter } from './services/notify.service.adapter';
 import { CreateNotifyService, FindNotifyService } from './services/notify.services.barrel';
-import { NotifyInMemoryRepository } from './repositories/notify.in.memory.repository';
 
 @Module({
     controllers: [NotifyController],
