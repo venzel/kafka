@@ -1,5 +1,5 @@
 import { NotifyEntityInterface } from '../entities/notify.entity.interface';
-import { ResponseNotifyDto } from '../notify.dtos.barrel';
+import { ResponseNotifyDto } from '../dtos/notify.dtos.barrel';
 
 export class NotifyMapper {
     static toDto({ id, message }: NotifyEntityInterface): ResponseNotifyDto {

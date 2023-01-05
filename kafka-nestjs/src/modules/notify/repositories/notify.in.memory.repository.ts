@@ -1,5 +1,5 @@
 import { NotifyInMemoryEntity } from '../entities/notify.in.memory.entity';
-import { CreateNotifyDto, ResponseNotifyDto } from '../notify.dtos.barrel';
+import { CreateNotifyDto, ResponseNotifyDto } from '../dtos/notify.dtos.barrel';
 import { NotifyMapper } from './../mappers/notify.mapper';
 import { NotifyRepositoryInterface } from './notify.repository.interface';
 
@@ -18,7 +18,7 @@ export class NotifyInMemoryRepository implements NotifyRepositoryInterface {
         return NotifyMapper.toDto(notify);
     }
 
-    async find(): Promise<ResponseNotifyDto[]> {
+    async list(): Promise<ResponseNotifyDto[]> {
         return NotifyMapper.toListDto(this.notifyRepository);
     }
 }

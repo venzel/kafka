@@ -1,10 +1,10 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { PaymentService } from './payment.service';
+import { PaymentExternalServiceInterface } from './payment.external.service.interface';
 
 @Injectable()
-export class PaypalPaymentService implements PaymentService {
+export class PaypalPaymentExternalService implements PaymentExternalServiceInterface {
     private readonly baseUrl: string;
 
     constructor(

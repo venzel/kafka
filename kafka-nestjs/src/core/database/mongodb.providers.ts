@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
-import { mongodbConfig as mg } from '../configs';
+import { mongodbConfig as mg } from '../configs/configs.barrel';
 
 mongoose.set('strictQuery', false);
 
 export const mongodbProviders = [
     {
-        provide: 'MONGODB_CONNECTION',
+        provide: 'MONGOOSE_CONNECTION',
         useFactory: (): Promise<typeof mongoose> => {
             const mongo = {
                 USER: mg.MONGODB_USER,

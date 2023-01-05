@@ -1,23 +1,23 @@
 import { Module } from '@nestjs/common';
 import {
-    PaypalPaymentService,
-    PicpayPaymentService,
-} from '../../core/services/payment.service.barrel';
-import { PaypalPaymentController, PicpayPaymentController } from './payment.controllers.barrel';
+    PaypalPaymentExternalService,
+    PicpayPaymentExternalService,
+} from '../../core/services/external/payment/payment.external.service.barrel';
+import {
+    PaypalPaymentController,
+    PicpayPaymentController,
+} from './controllers/payment.controllers.barrel';
 import {
     PaypalPaymentServiceAdapter,
     PicpayPaymentServiceAdapter,
-} from './payment.services.barrel';
-import { httpPicpayProvider, httpProvider } from './providers/http.provider';
-import { paymentProvider } from './providers/payment.provider';
+} from './services/payment.services.barrel';
 
 @Module({
-    imports: [httpProvider, httpPicpayProvider],
+    imports: [],
     controllers: [PaypalPaymentController, PicpayPaymentController],
     providers: [
-        ...paymentProvider,
-        PaypalPaymentService,
-        PicpayPaymentService,
+        PaypalPaymentExternalService,
+        PicpayPaymentExternalService,
         PaypalPaymentServiceAdapter,
         PicpayPaymentServiceAdapter,
     ],

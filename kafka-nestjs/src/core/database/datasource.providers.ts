@@ -1,9 +1,9 @@
 import { DataSource } from 'typeorm';
-import { postgresConfig as pg } from '../configs';
+import { postgresConfig as pg } from '../configs/configs.barrel';
 
 export const datasourceProviders = [
     {
-        provide: 'POSTGRES_CONNECTION',
+        provide: 'TYPEORM_CONNECTION',
         useFactory: async () => {
             const dataSource = new DataSource({
                 type: 'postgres',

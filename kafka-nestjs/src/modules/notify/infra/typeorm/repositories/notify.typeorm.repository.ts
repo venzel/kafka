@@ -6,7 +6,7 @@ import { NotifyTypeormEntity } from '../entities/notify.typeorm.entity';
 
 export class NotifyTypeormRepository implements NotifyRepositoryInterface {
     constructor(
-        @Inject('NOTIFY_REPOSITORY')
+        @Inject('NOTIFY_TYPEORM_REPOSITORY')
         private notifyRepository: Repository<NotifyTypeormEntity>,
     ) {}
 
@@ -22,7 +22,7 @@ export class NotifyTypeormRepository implements NotifyRepositoryInterface {
         return notify;
     }
 
-    async find(): Promise<NotifyTypeormEntity[]> {
+    async list(): Promise<NotifyTypeormEntity[]> {
         return await this.notifyRepository.find();
     }
 }

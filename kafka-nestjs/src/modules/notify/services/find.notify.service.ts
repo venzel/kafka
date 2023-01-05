@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { NotifyMessageEnum } from '../enums/notify.message.enum';
 import { NotifyMapper } from '../mappers/notify.mapper';
-import { ResponseNotifyDto } from '../notify.dtos.barrel';
-import { NotifyService } from './base.notify.service';
+import { ResponseNotifyDto } from '../dtos/notify.dtos.barrel';
+import { BaseNotifyService } from './base.notify.service';
 
 @Injectable()
-export class FindNotifyService extends NotifyService {
+export class FindNotifyService extends BaseNotifyService {
     async execute(): Promise<ResponseNotifyDto[]> {
-        const notifies = await this.notifyRepository.find();
+        const notifies = await this.notifyRepository.list();
 
         this.logger.log(NotifyMessageEnum.LISTED);
 

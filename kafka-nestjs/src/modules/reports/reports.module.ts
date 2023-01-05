@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { mongodbProviders } from 'src/core/providers/mongodb.providers';
+import { mongodbProviders } from 'src/core/database/mongodb.providers';
 import { reportProvider } from './report.provider';
 import { ReportRepository } from './report.repository';
 import { ReportsController } from './reports.controller';

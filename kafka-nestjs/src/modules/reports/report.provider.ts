@@ -5,6 +5,6 @@ export const reportProvider = [
     {
         provide: 'REPORT_MODEL',
         useFactory: (connection: Connection) => connection.model('Report', ReportSchema),
-        inject: ['MONGODB_CONNECTION'],
+        inject: ['MONGOOSE_CONNECTION'],
     },
 ];

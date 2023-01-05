@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateNotifyDto } from './dtos/create.notify.dto';
-import { ResponseNotifyDto } from './notify.dtos.barrel';
+import { CreateNotifyDto } from '../dtos/create.notify.dto';
+import { ResponseNotifyDto } from '../dtos/notify.dtos.barrel';
 import { CreateNotifyService, FindNotifyService } from './notify.services.barrel';
 
 @Injectable()

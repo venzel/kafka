@@ -4,5 +4,5 @@ import { ResponseNotifyDto } from '../dtos/response.notify.dto';
 export interface NotifyRepositoryInterface {
     create(createNotifyDto: CreateNotifyDto): Promise<ResponseNotifyDto>;
 
-    find(): Promise<ResponseNotifyDto[]>;
+    list(): Promise<ResponseNotifyDto[]>;
 }

@@ -1,10 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PaymentService } from 'src/core/services/payment/payment.service';
-import { BasePaymentService } from './base.payment.service';
+import { PaymentExternalServiceInterface } from 'src/core/services/external/payment/payment.external.service.interface';
+import { PaymentServiceBase } from './payment.service.base';
 
 @Injectable()
-export class PaypalPaymentServiceAdapter extends BasePaymentService {
-    constructor(@Inject('PAYPAL_PAYMENT') private readonly paypalService: PaymentService) {
+export class PaypalPaymentServiceAdapter extends PaymentServiceBase {
+    constructor(
+        @Inject('PAYPAL_PAYMENT') private readonly paypalService: PaymentExternalServiceInterface,
+    ) {
         super(PaypalPaymentServiceAdapter.name);
     }
 
