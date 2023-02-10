@@ -3,6 +3,12 @@
 👉 [Geração do cluster](../kafka-cluster/README.md)<br />
 👉 [Pré requisito e instalações](install.md)
 
+## 👤 Autores
+
+| Foto                                      | Nome                                        | Ativo | Dt. inativo | Atribuições                             |
+| ----------------------------------------- | ------------------------------------------- | ----- | ----------- | --------------------------------------- |
+| ![Enéas](./media/images/venzel-thumb.png) | [Enéas Almeida](https://github.com/venzel/) | 🔥    | -           | Manager, Arquiteto, FullStack Developer |
+
 ## Produtor
 
 Criando o produtor e enviando mensagens para o tópico 'meutopico'

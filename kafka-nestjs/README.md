@@ -1,10 +1,16 @@
 # NestJs + Kafka
 
-**REFERÊNCIAS:**
+**Referências:**
 
 [Wesley Williams - Fullcycle](https://github.com/codeedu/nest-kafka/tree/master/apache-kafka)<br />
-[Iago Maia - Medium](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)
+[Iago Maia - Medium](https://medium.com/@iago.maiasilva/construindo-uma-api-com-nestjs-postgresql-e-docker-parte-1-criando-nosso-primeiro-endpoint-248d4b8ecc9c)<br />
 [Imersão Fullcycle](https://github.com/codeedu/live-imersao-fullcycle8-nestjs-clean-architecture)
+
+## 👤 Autores
+
+| Foto                                      | Nome                                        | Ativo | Dt. inativo | Atribuições                             |
+| ----------------------------------------- | ------------------------------------------- | ----- | ----------- | --------------------------------------- |
+| ![Enéas](./media/images/venzel-thumb.png) | [Enéas Almeida](https://github.com/venzel/) | 🔥    | -           | Manager, Arquiteto, FullStack Developer |
 
 ## Pré requisitos
 
