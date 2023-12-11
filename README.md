@@ -234,6 +234,10 @@ kafka-consumer-groups --bootstrap-server localhost:29092 --list
 kafka-consumer-groups --bootstrap-server localhost:29092 --group group-clean --describe
 ```
 
+## Como acessar o cluster do control center
+
+http://localhost:9021
+
 <hr />
 
 <div>
