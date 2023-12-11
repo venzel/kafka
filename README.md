@@ -38,7 +38,7 @@ Documentação:
 
 -   O produtor envia uma mensagem para o Kafka, que fica armazenado em um broker, que possui um banco de dados próprio, o consumidor por sua vez, realiza a leitura das mensagens nos brokers.
 
-<img src="./media/kafka/kafka-1.gif" />
+<img src="./media/kafka/kafka-1-2.gif" />
 
 ## Tópicos
 
