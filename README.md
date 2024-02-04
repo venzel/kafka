@@ -1,5 +1,7 @@
 # Kafka
 
+> Este guia foi elaborado por **Enéas Almeida** com o principal objetivo de facilitar os repasses de informações à equipe.
+
 Documentação:
 
 -   [kafjajs](https://kafka.js.org/docs/getting-started)
